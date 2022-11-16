@@ -1,0 +1,7 @@
+.crud_options {
+  display: flex;
+  background-color: red;
+  border-radius: 100%;
+  width: 32px;
+  height: 32px;
+}
