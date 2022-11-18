@@ -1,19 +1,21 @@
 import React from "react";
 import "./Header.css";
 import Link from "./Link/Link";
-import { AiFillApple } from "react-icons/ai";
+import { FaCompass } from "react-icons/fa";
+import { BiTargetLock } from "react-icons/bi";
+import { MdSchool } from "react-icons/md";
 
 const Header = () => {
   return (
     <nav className="header">
       <Link route="/invoices" isActive={true}>
-        <AiFillApple style={{ fontSize: "32px" }} />
+        <FaCompass style={{ fontSize: "42px", color: "#707070" }} />
       </Link>
       <Link route="/customers" isActive={false}>
-        <AiFillApple style={{ fontSize: "32px" }} />
+        <BiTargetLock style={{ fontSize: "42px", color: "#707070" }} />
       </Link>
       <Link route="/sellers" isActive={false}>
-        <AiFillApple style={{ fontSize: "32px" }} />
+        <MdSchool style={{ fontSize: "42px", color: "#707070" }} />
       </Link>
     </nav>
   );

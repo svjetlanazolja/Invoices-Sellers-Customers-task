@@ -1,9 +1,30 @@
-import React from 'react'
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import CrudComponent from "../components/crud-component/CrudComponent";
+import PageHeader from "../components/page-header/PageHeader";
+import SellersTable from "../components/sellersTable/SellersTable";
+import { changeSellers } from "../redux/slices/sellers/sellersSlices";
+import { sellersDataSelector } from "../redux/slices/sellers/sellersSelector";
+import { sellersServices } from "../services/sellersServices";
 
 const Sellers = () => {
-  return (
-    <div>Sellers</div>
-  )
-}
+  const sellersData = useSelector(sellersDataSelector);
+  console.log("ovo renderovati", sellersData);
+  const dispatch = useDispatch();
 
-export default Sellers
+  useEffect(() => {
+    sellersServices.getSellers().then((res) => {
+      dispatch(changeSellers(res.data));
+    });
+  }, [dispatch]);
+
+  return (
+    <div>
+      <PageHeader>SELLERS</PageHeader>
+      <CrudComponent route={"sellers"} />
+      <SellersTable route={"sellers"} />
+    </div>
+  );
+};
+
+export default Sellers;

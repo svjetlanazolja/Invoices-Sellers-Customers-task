@@ -125,4 +125,6 @@ table {
 
 * {
   box-sizing: border-box;
+  background-color: #fafafa;
+  font-family: sans-serif;
 }

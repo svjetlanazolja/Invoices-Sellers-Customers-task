@@ -1,4 +1,11 @@
 .layout {
-  border: 1px solid red;
-  display: flex;
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 20px;
+}
+
+.page_container {
+  display: inline-block;
 }

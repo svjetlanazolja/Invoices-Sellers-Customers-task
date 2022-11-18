@@ -11,8 +11,8 @@
   margin: 0 16px;
   cursor: default;
   font-size: 13px;
-
   overflow-y: auto;
+  background: transparent;
 }
 
 .modal_exit {

@@ -4,10 +4,12 @@ import "./Layout.css";
 
 const Layout = ({ children }) => {
   return (
-    <main className="layout">
-      <Header />
-      {children}
-    </main>
+    <>
+      <main className="layout">
+        <Header />
+        <div className="page_container">{children}</div>
+      </main>
+    </>
   );
 };
 

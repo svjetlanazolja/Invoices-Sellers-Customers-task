@@ -1,11 +1,16 @@
 .page_header {
-  font-size: 24px;
   width: 100%;
   display: flex;
+  font-size: 24px;
   justify-content: center;
 }
 
 .page_title {
-  padding: 16px 32px;
-  background-color: aliceblue;
+  color: #707070;
+  padding: 12px 70px;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid #d1d1d1;
+  font-weight: 500;
+  font-size: 22px;
 }

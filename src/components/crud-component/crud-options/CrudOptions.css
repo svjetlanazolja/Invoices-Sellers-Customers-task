@@ -1,7 +1,28 @@
+.crud_option_container {
+  display: flex;
+  margin-top: 50px;
+  justify-content: center;
+}
+
+.crud_option_container span {
+  display: flex;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: white;
+  border: 1px solid #d1d1d1;
+}
+
 .crud_options {
   display: flex;
-  background-color: red;
+  margin: 0 5px;
   border-radius: 100%;
-  width: 32px;
-  height: 32px;
+  cursor: pointer;
+}
+
+.active_link {
+  background: red;
+}
+
+.normal {
+  background-color: seagreen;
 }
