@@ -21,8 +21,8 @@ const Customers = () => {
   return (
     <div>
       <PageHeader>CUSTOMERS</PageHeader>
-      <CrudComponent route={"invoices"} />
-      <CustomersTable route={"invoices"} />
+      <CrudComponent route={"customers"} />
+      <CustomersTable route={"customers"} />
     </div>
   );
 };

@@ -16,8 +16,10 @@ const AddFormModalInvoices = () => {
         <label>Date</label>
         <input type="text" name="date" required />
 
-        <label>Amount</label>
-        <input type="text" name="amount" required />
+        <div className="dollar_div">
+          <label>Amount</label>
+          <input type="number" min="1" name="amount" required id="dollar" />
+        </div>
 
         <div className="buttons-form">
           <Button

@@ -13,6 +13,7 @@
   color: #5b5b5b;
   margin-bottom: 10px;
   background: white;
+  font-size: 14px;
 }
 
 .form_modal {
@@ -39,4 +40,35 @@
   display: flex;
   margin-top: 20px;
   justify-content: space-between;
+}
+
+.delete_modal_label {
+  text-align: center !important;
+  font-weight: 600;
+  font-size: 14px;
+  color: #5b5b5b;
+}
+
+.dollar_div {
+  display: inline-block;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.dollar_div::after {
+  position: absolute;
+  top: 32px;
+  font-size: 16px;
+  right: 2em;
+}
+
+@supports (-moz-appearance: none) {
+  .dollar_div::after {
+    right: 5em;
+  }
+}
+
+.dollar_div::after {
+  content: "$";
 }

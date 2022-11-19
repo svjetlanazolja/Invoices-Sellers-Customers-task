@@ -1,12 +1,17 @@
 import React, { useState } from "react";
-import EditFormModalSellers from "../../form-modal/form-modal-sellers/AddFormModalSellers";
-import EditFormModalCustomers from "../../form-modal/form-modal-customers/EditFormModalCustomers";
-import EditFormModalInvoices from "../../form-modal/form-modal-invoices/EditFormModalInvoices";
 import Modal from "../../modal/Modal";
 import "./CrudOptions.css";
 import AddFormModalInvoices from "../../form-modal/form-modal-invoices/AddFormModalInvoices";
+import EditFormModalInvoices from "../../form-modal/form-modal-invoices/EditFormModalInvoices";
+import DeleteFormModalInvoices from "../../form-modal/form-modal-invoices/DeleteFormModalInvoices";
+
 import AddFormModalCustomers from "../../form-modal/form-modal-customers/AddFormModalCustomers";
+import EditFormModalCustomers from "../../form-modal/form-modal-customers/EditFormModalCustomers";
+import DeleteFormModalCustomers from "../../form-modal/form-modal-customers/DeleteFormModalCustomers";
+
+import EditFormModalSellers from "../../form-modal/form-modal-sellers/EditFormModalSellers";
 import AddFormModalSellers from "../../form-modal/form-modal-sellers/AddFormModalSellers";
+import DeleteFormModalSellers from "../../form-modal/form-modal-sellers/DeleteFormModalSellers";
 
 const CrudOption = ({ route, type, id, children }) => {
   const [isModalInView, setIsModalInView] = useState(false);
@@ -32,7 +37,7 @@ const CrudOption = ({ route, type, id, children }) => {
             //TODO: INVOICES UPDATE COMPONENT i dodati id toj komponenti da ucita podatak i da ga moze mjenjati
           )}
           {route === "invoices" && type === "delete" && (
-            <div>INVOICES DELETE</div>
+            <DeleteFormModalInvoices />
           )}
 
           {route === "customers" && type === "add" && <AddFormModalCustomers />}
@@ -41,7 +46,7 @@ const CrudOption = ({ route, type, id, children }) => {
             //TODO: INVOICES UPDATE COMPONENT i dodati id toj komponenti da ucita podatak i da ga moze mjenjati
           )}
           {route === "customers" && type === "delete" && (
-            <div>customers DELETE</div>
+            <DeleteFormModalCustomers />
           )}
 
           {route === "sellers" && type === "add" && <AddFormModalSellers />}
@@ -50,7 +55,7 @@ const CrudOption = ({ route, type, id, children }) => {
             //TODO: INVOICES UPDATE COMPONENT i dodati id toj komponenti da ucita podatak i da ga moze mjenjati
           )}
           {route === "sellers" && type === "delete" && (
-            <div>INVOICES DELETE</div>
+            <DeleteFormModalSellers />
           )}
         </Modal>
       )}
