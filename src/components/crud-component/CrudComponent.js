@@ -4,6 +4,10 @@ import { AiOutlinePlus } from "react-icons/ai";
 import { HiPencil } from "react-icons/hi";
 
 const CrudComponent = ({ route, id }) => {
+  // const handleClickOpen = () => {
+  //   setOpen(true);
+  // };
+
   return (
     <div className="crud_option_container">
       <span>
