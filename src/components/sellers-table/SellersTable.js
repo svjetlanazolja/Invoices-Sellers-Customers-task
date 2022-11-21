@@ -127,13 +127,13 @@ const SellersTable = () => {
       <ul className="pagination_container">
         <li className="pagination_icon">
           <button onClick={handlePrevButton}>
-            <GrFormPrevious style={{ fontSize: "20px", color: "#707070" }} />
+            <GrFormPrevious style={{ fontSize: "20px" }} />
           </button>
         </li>
         {renderPageNumbers}
         <li className="pagination_icon">
           <button onClick={handleNextButton}>
-            <MdNavigateNext style={{ fontSize: "20px", color: "#707070" }} />
+            <MdNavigateNext style={{ fontSize: "20px" }} />
           </button>
         </li>
       </ul>

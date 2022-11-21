@@ -6,9 +6,11 @@ import EditFormModalInvoices from "../form-modal/form-modal-invoices/EditFormMod
 import { setRowInfo } from "../../redux/slices/invoices/invoicesSlices";
 import { useDispatch } from "react-redux";
 import "./InvoicesTable.css";
+import { useNavigate } from "react-router-dom";
 
 const InvoicesTable = () => {
   const [invoicesData, setInvoicesData] = useState([]);
+  const navigate = useNavigate();
 
   const [rowSelected, setRowSelected] = useState(false);
   const [updateInvoicesRequestSent, setUpdateInvoicesRequestSent] =
@@ -68,6 +70,7 @@ const InvoicesTable = () => {
     dispatch(setRowInfo(rowData));
     setRowSelected((prevState) => !prevState);
     console.log(rowData);
+    // navigate("/");
   };
 
   const handleCloseInvoicesEditModal = () => {
@@ -127,13 +130,13 @@ const InvoicesTable = () => {
       <ul className="pagination_container">
         <li className="pagination_icon">
           <button onClick={handlePrevButton}>
-            <GrFormPrevious style={{ fontSize: "20px", color: "#707070" }} />
+            <GrFormPrevious style={{ fontSize: "20px" }} />
           </button>
         </li>
         {renderPageNumbers}
         <li className="pagination_icon">
           <button onClick={handleNextButton}>
-            <MdNavigateNext style={{ fontSize: "20px", color: "#707070" }} />
+            <MdNavigateNext style={{ fontSize: "20px" }} />
           </button>
         </li>
       </ul>

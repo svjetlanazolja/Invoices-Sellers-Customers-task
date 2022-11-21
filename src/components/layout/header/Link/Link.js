@@ -3,7 +3,6 @@ import "./Link.css";
 import { useNavigate } from "react-router-dom";
 
 const Link = ({ route, isActive, children }) => {
-  //TODO: Add is active
   const navigate = useNavigate();
   return (
     <div

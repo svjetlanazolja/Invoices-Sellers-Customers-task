@@ -21,9 +21,12 @@ export const invoicesSlice = createSlice({
     setRowInfo: (state, action) => {
       state.rowInfo = action.payload;
     },
+    addRowInfo: (state, action) => {
+      state.rowInfoAdd = action.payload;
+    },
   },
 });
 
-export const { changeInvoices, setRowInfo } = invoicesSlice.actions;
+export const { changeInvoices, setRowInfo, addRowInfo } = invoicesSlice.actions;
 
 export default invoicesSlice.reducer;

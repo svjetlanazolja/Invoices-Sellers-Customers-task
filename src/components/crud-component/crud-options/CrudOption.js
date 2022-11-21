@@ -33,8 +33,6 @@ const CrudOption = ({ route, type, id, children }) => {
           {route === "invoices" && type === "add" && <AddFormModalInvoices />}
           {route === "invoices" && type === "update" && (
             <EditFormModalInvoices />
-
-            //TODO: INVOICES UPDATE COMPONENT i dodati id toj komponenti da ucita podatak i da ga moze mjenjati
           )}
           {route === "invoices" && type === "delete" && (
             <DeleteFormModalInvoices />
@@ -43,17 +41,13 @@ const CrudOption = ({ route, type, id, children }) => {
           {route === "customers" && type === "add" && <AddFormModalCustomers />}
           {route === "customers" && type === "update" && (
             <EditFormModalCustomers />
-            //TODO: INVOICES UPDATE COMPONENT i dodati id toj komponenti da ucita podatak i da ga moze mjenjati
           )}
           {route === "customers" && type === "delete" && (
             <DeleteFormModalCustomers />
           )}
 
           {route === "sellers" && type === "add" && <AddFormModalSellers />}
-          {route === "sellers" && type === "update" && (
-            <EditFormModalSellers />
-            //TODO: INVOICES UPDATE COMPONENT i dodati id toj komponenti da ucita podatak i da ga moze mjenjati
-          )}
+          {route === "sellers" && type === "update" && <EditFormModalSellers />}
           {route === "sellers" && type === "delete" && (
             <DeleteFormModalSellers />
           )}

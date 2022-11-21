@@ -29,8 +29,19 @@ async function updateSingleInvoice(id, data) {
     console.error(error);
   }
 }
+
+async function AddSingleInvoice(id, data) {
+  try {
+    const res = await axios.post(backend_url + route + `/${id}`, data);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export const invoiceServices = {
   getInvoices,
   getSingleInvoice,
   updateSingleInvoice,
+  AddSingleInvoice,
 };
