@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import CrudComponent from "../components/crud-component/CrudComponent";
-import CustomersTable from "../components/customers/CustomersTable";
+import CustomersTable from "../components/customers-table/CustomersTable";
 import PageHeader from "../components/page-header/PageHeader";
 import { customersServices } from "../services/customersServices";
 import { changeCustomers } from "../redux/slices/customers/customersSlices";

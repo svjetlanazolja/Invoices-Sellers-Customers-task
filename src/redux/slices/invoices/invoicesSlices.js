@@ -3,6 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   data: [],
   activeId: null,
+  rowInfo: {
+    sellerName: "",
+    customerName: "",
+    date: "",
+    amount: "",
+  },
 };
 
 export const invoicesSlice = createSlice({
@@ -12,9 +18,12 @@ export const invoicesSlice = createSlice({
     changeInvoices: (state, action) => {
       state.data = action.payload;
     },
+    setRowInfo: (state, action) => {
+      state.rowInfo = action.payload;
+    },
   },
 });
 
-export const { changeInvoices } = invoicesSlice.actions;
+export const { changeInvoices, setRowInfo } = invoicesSlice.actions;
 
 export default invoicesSlice.reducer;

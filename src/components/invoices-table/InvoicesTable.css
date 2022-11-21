@@ -67,3 +67,31 @@ table td:last-child {
 .next_button {
   cursor: pointer;
 }
+
+.pagination_container {
+  list-style: none;
+  display: flex;
+  justify-content: right;
+}
+
+.pagination_container li {
+  border: 2px solid #d6d6d6;
+  border-radius: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.pagination_container li button {
+  cursor: pointer;
+  border: none;
+}
+
+.pagination_container li.active {
+  background-color: white;
+  color: black;
+}
+
+.pagination_container li:not(.pagination_icon) {
+  padding: 5px 12px;
+}

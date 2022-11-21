@@ -20,4 +20,17 @@ async function getSingleSeller(id) {
     console.error(error);
   }
 }
-export const sellersServices = { getSellers, getSingleSeller };
+
+async function updateSingleSeller(id, data) {
+  try {
+    const res = await axios.put(backend_url + route + `/${id}`, data);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+}
+export const sellersServices = {
+  getSellers,
+  getSingleSeller,
+  updateSingleSeller,
+};

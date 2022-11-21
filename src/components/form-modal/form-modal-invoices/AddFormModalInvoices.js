@@ -66,7 +66,7 @@ const AddFormModalInvoices = () => {
             value={amount}
             required
             id="dollar"
-            onChange={(e) => oninput(e)}
+            onChange={(e) => onInputChange(e)}
           />
         </div>
 

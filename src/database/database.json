@@ -2,7 +2,7 @@
   "invoices": [
     {
       "id": 1,
-      "sellerName": "Microsoft",
+      "sellerName": "Microsoft test",
       "customerName": "Marko Markovic",
       "date": "10.10.2022",
       "amount": "325.400$"
@@ -67,14 +67,14 @@
   "sellers": [
     {
       "id": 1,
-      "companyName": "Microsoft",
-      "hqAddress": "Banjaluka",
+      "companyName": "Microsoft test",
+      "hqAddress": "Banjaluka test",
       "isActive": true
     },
     {
       "id": 2,
-      "companyName": "Microsoft2",
-      "hqAddress": "Banjaluka2",
+      "companyName": "Microsoft test",
+      "hqAddress": "Banjaluka test",
       "isActive": true
     },
     {
@@ -88,6 +88,36 @@
       "companyName": "Microsoft4",
       "hqAddress": "Banjaluka4",
       "isActive": true
+    },
+    {
+      "id": 5,
+      "companyName": "Microsoft test",
+      "hqAddress": "Banjaluka",
+      "isActive": true
+    },
+    {
+      "id": 6,
+      "companyName": "Microsoft",
+      "hqAddress": "Banjaluka",
+      "isActive": true
+    },
+    {
+      "id": 7,
+      "companyName": "Microsoft3",
+      "hqAddress": "Banjaluka3",
+      "isActive": true
+    },
+    {
+      "id": 8,
+      "companyName": "Microsoft4",
+      "hqAddress": "Banjaluka4",
+      "isActive": true
+    },
+    {
+      "id": 9,
+      "companyName": "Microsoft3",
+      "hqAddress": "Banjaluka3",
+      "isActive": true
     }
   ],
   "customers": [
@@ -100,8 +130,8 @@
     },
     {
       "id": 2,
-      "name": "Marko2",
-      "surname": "Markovic",
+      "name": "Marko24t",
+      "surname": "Markovic44t",
       "address": "Trebinje2",
       "age": 24
     },
@@ -114,6 +144,34 @@
     },
     {
       "id": 4,
+      "name": "Marko4",
+      "surname": "Markovic",
+      "address": "Trebinje4",
+      "age": 26
+    },
+    {
+      "id": 5,
+      "name": "Marko test",
+      "surname": "Markovic",
+      "address": "Trebinje",
+      "age": 23
+    },
+    {
+      "id": 6,
+      "name": "Marko test2",
+      "surname": "Markovic",
+      "address": "Trebinje2",
+      "age": 24
+    },
+    {
+      "id": 7,
+      "name": "Marko3",
+      "surname": "Markovic",
+      "address": "Trebinje3",
+      "age": 25
+    },
+    {
+      "id": 8,
       "name": "Marko4",
       "surname": "Markovic",
       "address": "Trebinje4",
