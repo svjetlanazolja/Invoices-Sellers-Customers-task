@@ -4,3 +4,16 @@
   border-radius: 16px;
   height: fit-content;
 }
+
+.tab {
+  background: red;
+}
+
+.tab.active {
+  background: greenyellow;
+}
+
+.active-link {
+  background-color: red;
+  color: seagreen;
+}

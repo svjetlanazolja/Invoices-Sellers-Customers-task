@@ -28,6 +28,8 @@ const EditFormModalInvoices = ({
     setUpdateInvoicesRequestSent((prevState) => !prevState);
   };
 
+  const today = new Date().toISOString().split("T")[0];
+
   return (
     <div className="form_modal_container">
       <h3>Edit an invoice</h3>
@@ -54,8 +56,9 @@ const EditFormModalInvoices = ({
         <input
           onChange={(event) => setInvoicesDate(event.target.value)}
           value={invoicesDate}
-          type="text"
+          type="date"
           name="date"
+          max={today}
           required
         />
 

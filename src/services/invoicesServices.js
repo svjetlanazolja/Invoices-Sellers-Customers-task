@@ -30,9 +30,18 @@ async function updateSingleInvoice(id, data) {
   }
 }
 
-async function AddSingleInvoice(id, data) {
+async function AddSingleInvoice(data) {
   try {
-    const res = await axios.post(backend_url + route + `/${id}`, data);
+    const res = await axios.post(backend_url + route, data);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function deleteSingleInvoice(id) {
+  try {
+    const res = await axios.delete(backend_url + route + `/${id}`);
     return res;
   } catch (error) {
     console.error(error);
@@ -44,4 +53,5 @@ export const invoiceServices = {
   getSingleInvoice,
   updateSingleInvoice,
   AddSingleInvoice,
+  deleteSingleInvoice,
 };

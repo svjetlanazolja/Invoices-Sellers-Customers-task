@@ -15,6 +15,9 @@ import DeleteFormModalSellers from "../../form-modal/form-modal-sellers/DeleteFo
 
 const CrudOption = ({ route, type, id, children }) => {
   const [isModalInView, setIsModalInView] = useState(false);
+  const handleCloseModal = () => {
+    setIsModalInView(false);
+  };
 
   return (
     <div
@@ -30,7 +33,9 @@ const CrudOption = ({ route, type, id, children }) => {
             setIsModalInView(false);
           }}
         >
-          {route === "invoices" && type === "add" && <AddFormModalInvoices />}
+          {route === "invoices" && type === "add" && (
+            <AddFormModalInvoices handleCloseModal={handleCloseModal} />
+          )}
           {route === "invoices" && type === "update" && (
             <EditFormModalInvoices />
           )}
@@ -38,7 +43,9 @@ const CrudOption = ({ route, type, id, children }) => {
             <DeleteFormModalInvoices />
           )}
 
-          {route === "customers" && type === "add" && <AddFormModalCustomers />}
+          {route === "customers" && type === "add" && (
+            <AddFormModalCustomers handleCloseModal={handleCloseModal} />
+          )}
           {route === "customers" && type === "update" && (
             <EditFormModalCustomers />
           )}
@@ -46,7 +53,9 @@ const CrudOption = ({ route, type, id, children }) => {
             <DeleteFormModalCustomers />
           )}
 
-          {route === "sellers" && type === "add" && <AddFormModalSellers />}
+          {route === "sellers" && type === "add" && (
+            <AddFormModalSellers handleCloseModal={handleCloseModal} />
+          )}
           {route === "sellers" && type === "update" && <EditFormModalSellers />}
           {route === "sellers" && type === "delete" && (
             <DeleteFormModalSellers />

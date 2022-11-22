@@ -9,6 +9,7 @@ const initialState = {
     date: "",
     amount: "",
   },
+  reqSent: 1,
 };
 
 export const invoicesSlice = createSlice({
@@ -21,12 +22,13 @@ export const invoicesSlice = createSlice({
     setRowInfo: (state, action) => {
       state.rowInfo = action.payload;
     },
-    addRowInfo: (state, action) => {
-      state.rowInfoAdd = action.payload;
+    setReqState: (state) => {
+      state.reqSent = state.reqSent + 1;
     },
   },
 });
 
-export const { changeInvoices, setRowInfo, addRowInfo } = invoicesSlice.actions;
+export const { changeInvoices, setRowInfo, addRowInfo, setReqState } =
+  invoicesSlice.actions;
 
 export default invoicesSlice.reducer;

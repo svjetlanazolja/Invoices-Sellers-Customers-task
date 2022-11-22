@@ -29,8 +29,29 @@ async function updateSingleSeller(id, data) {
     console.error(error);
   }
 }
+
+async function AddSingleSeller(data) {
+  try {
+    const res = await axios.post(backend_url + route, data);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function deleteSingleSeller(id) {
+  try {
+    const res = await axios.delete(backend_url + route + `/${id}`);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export const sellersServices = {
   getSellers,
   getSingleSeller,
   updateSingleSeller,
+  AddSingleSeller,
+  deleteSingleSeller,
 };

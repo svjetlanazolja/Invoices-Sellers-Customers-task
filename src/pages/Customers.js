@@ -9,7 +9,7 @@ import { customersDataSelector } from "../redux/slices/customers/customersSelect
 
 const Customers = () => {
   const customersData = useSelector(customersDataSelector);
-  console.log("ovo renderovati", customersData);
+  console.log(customersData);
   const dispatch = useDispatch();
 
   useEffect(() => {

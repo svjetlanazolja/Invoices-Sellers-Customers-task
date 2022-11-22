@@ -16,8 +16,8 @@ const CustomersTable = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(4);
-  const [pageNumberLimit, setPageNumberLimit] = useState(2);
-  const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(2);
+  const [pageNumberLimit, setPageNumberLimit] = useState(1);
+  const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(1);
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
 
   const handleClick = (event) => {

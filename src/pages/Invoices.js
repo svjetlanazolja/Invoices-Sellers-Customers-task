@@ -9,7 +9,7 @@ import { invoiceServices } from "../services/invoicesServices";
 
 const Invoices = () => {
   const invoicesData = useSelector(invoicesDataSelector);
-  console.log("ovo renderovati", invoicesData);
+  console.log(invoicesData);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -18,7 +18,6 @@ const Invoices = () => {
     });
   }, [dispatch]);
 
-  //
   return (
     <div>
       <PageHeader>INVOICES</PageHeader>

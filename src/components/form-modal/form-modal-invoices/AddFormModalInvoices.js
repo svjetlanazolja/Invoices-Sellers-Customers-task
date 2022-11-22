@@ -2,17 +2,36 @@ import React, { useState } from "react";
 import Button from "../../button/Button";
 import "./FormModalInvoices.css";
 import { invoiceServices } from "../../../services/invoicesServices";
+import { useNavigate } from "react-router-dom";
+import { setReqState } from "../../../redux/slices/invoices/invoicesSlices";
+import { useDispatch } from "react-redux";
 
-const AddFormModalInvoices = () => {
+const AddFormModalInvoices = ({ handleCloseModal }) => {
+  const today = new Date().toISOString().split("T")[0];
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
   const [newInvoices, setNewInvoices] = useState({
+    id: "",
     sellerName: "",
     customerName: "",
     date: "",
     amount: "",
   });
 
-  const handleAddInvoices = () => {
+  const handleAddInvoices = async () => {
+    await invoiceServices.AddSingleInvoice({
+      id: Math.random() * 10000,
+      sellerName: newInvoices.sellerName,
+      customerName: newInvoices.customerName,
+      date: newInvoices.date,
+      amount: newInvoices.amount,
+    });
+    invoiceServices.getInvoices();
     setNewInvoices({ sellerName: "", customerName: "", date: "", amount: "" });
+    dispatch(setReqState());
+    handleCloseModal();
+    navigate("/");
     console.log(newInvoices);
   };
 
@@ -30,7 +49,6 @@ const AddFormModalInvoices = () => {
             setNewInvoices({ ...newInvoices, sellerName: e.target.value })
           }
         />
-
         <label>Customer</label>
         <input
           type="text"
@@ -44,15 +62,15 @@ const AddFormModalInvoices = () => {
 
         <label>Date</label>
         <input
-          type="text"
+          type="date"
           name="date"
+          max={today}
           value={newInvoices.date}
           required
           onChange={(e) =>
             setNewInvoices({ ...newInvoices, date: e.target.value })
           }
         />
-
         <div className="dollar_div">
           <label>Amount</label>
           <input
@@ -67,10 +85,23 @@ const AddFormModalInvoices = () => {
             }
           />
         </div>
-
         <div className="buttons-form">
-          <Button>Discard</Button>
-          <Button onClick={handleAddInvoices}>Save</Button>
+          <Button
+            type="button"
+            buttonStyle="btn--primary"
+            buttonColor="btn--yellow"
+            onClick={() => handleAddInvoices()}
+          >
+            Discard
+          </Button>
+          <Button
+            type="button"
+            buttonStyle="btn--primary"
+            buttonColor="btn--green"
+            onClick={() => handleAddInvoices()}
+          >
+            Save
+          </Button>
         </div>
       </form>
     </div>
@@ -78,100 +109,3 @@ const AddFormModalInvoices = () => {
 };
 
 export default AddFormModalInvoices;
-
-// *****************************
-
-// import React, { useState } from "react";
-// import Button from "../../button/Button";
-// import "./FormModalInvoices.css";
-
-// const AddFormModalInvoices = () => {
-//   const [newInvoices, setNewInvoices] = useState({
-//     sellerName: "",
-//     CustomerName: "",
-//     date: "",
-//     amount: "",
-//   });
-
-//   const onInputChange = (e) => {
-//     setNewInvoices({ ...newInvoices, [e.target.name]: e.target.value });
-//   };
-
-//   const { sellerName, customerName, date, amount } = newInvoices;
-
-//   // const [sellerName, setSellerName] = useState("");
-//   // const [customerName, setCustomerName] = useState("");
-//   // const [date, setDate] = useState("");
-//   // const [amount, setAmount] = useState("");
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     AddFormModalInvoices(sellerName, customerName, date, amount);
-//   };
-
-//   return (
-//     <div className="form_modal_container">
-//       <h3>Add an invoice</h3>
-//       <form className="form_modal">
-//         <label>Seller</label>
-//         <input
-//           type="text"
-//           name="sellerName"
-//           value={sellerName}
-//           required
-//           onChange={(e) => onInputChange(e)}
-//         />
-
-//         <label>Customer</label>
-//         <input
-//           type="text"
-//           name="customerName"
-//           value={customerName}
-//           required
-//           onChange={(e) => onInputChange(e)}
-//         />
-
-//         <label>Date</label>
-//         <input
-//           type="text"
-//           name="date"
-//           value={date}
-//           required
-//           onChange={(e) => onInputChange(e)}
-//         />
-
-//         <div className="dollar_div">
-//           <label>Amount</label>
-//           <input
-//             type="number"
-//             min="1"
-//             name="amount"
-//             value={amount}
-//             required
-//             id="dollar"
-//             onChange={(e) => onInputChange(e)}
-//           />
-//         </div>
-
-//         <div className="buttons-form">
-//           <Button
-//             type="button"
-//             buttonStyle="btn--primary"
-//             buttonColor="btn--yellow"
-//           >
-//             Discard
-//           </Button>
-//           <Button
-//             type="button"
-//             buttonStyle="btn--primary"
-//             buttonColor="btn--green"
-//           >
-//             Save
-//           </Button>
-//         </div>
-//       </form>
-//     </div>
-//   );
-// };
-
-// export default AddFormModalInvoices;

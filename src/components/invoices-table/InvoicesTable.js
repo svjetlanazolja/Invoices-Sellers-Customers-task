@@ -4,7 +4,7 @@ import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import EditFormModalInvoices from "../form-modal/form-modal-invoices/EditFormModalInvoices";
 import { setRowInfo } from "../../redux/slices/invoices/invoicesSlices";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./InvoicesTable.css";
 import { useNavigate } from "react-router-dom";
 
@@ -16,6 +16,7 @@ const InvoicesTable = () => {
   const [updateInvoicesRequestSent, setUpdateInvoicesRequestSent] =
     useState(false);
   const dispatch = useDispatch();
+  const reqSent = useSelector((state) => state.invoices.reqSent);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(4);
@@ -56,7 +57,7 @@ const InvoicesTable = () => {
 
   useEffect(() => {
     invoicesdata();
-  }, [updateInvoicesRequestSent]);
+  }, [updateInvoicesRequestSent, reqSent]);
 
   const backend_url = process.env.REACT_APP_BACKEND_URL;
   const route = "/invoices";
@@ -70,7 +71,6 @@ const InvoicesTable = () => {
     dispatch(setRowInfo(rowData));
     setRowSelected((prevState) => !prevState);
     console.log(rowData);
-    // navigate("/");
   };
 
   const handleCloseInvoicesEditModal = () => {

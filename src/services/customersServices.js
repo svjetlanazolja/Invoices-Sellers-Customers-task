@@ -30,8 +30,28 @@ async function updateSingleService(id, data) {
   }
 }
 
+async function AddSingleCustomer(data) {
+  try {
+    const res = await axios.post(backend_url + route, data);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+async function deleteSingleCustomer(id) {
+  try {
+    const res = await axios.delete(backend_url + route + `/${id}`);
+    return res;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 export const customersServices = {
   getCustomers,
   getSingleCustomer,
   updateSingleService,
+  AddSingleCustomer,
+  deleteSingleCustomer,
 };

@@ -20,9 +20,12 @@ export const sellersSlice = createSlice({
     setRowInfo: (state, action) => {
       state.rowInfo = action.payload;
     },
+    setReqState: (state) => {
+      state.reqSent = state.reqSent + 1;
+    },
   },
 });
 
-export const { changeSellers, setRowInfo } = sellersSlice.actions;
+export const { changeSellers, setRowInfo, setReqState } = sellersSlice.actions;
 
 export default sellersSlice.reducer;

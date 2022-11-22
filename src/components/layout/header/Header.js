@@ -7,17 +7,20 @@ import { MdSchool } from "react-icons/md";
 
 const Header = () => {
   return (
-    <nav className="header">
-      <Link route="/invoices" isActive={true}>
-        <FaCompass style={{ fontSize: "42px", color: "#707070" }} />
-      </Link>
-      <Link route="/customers" isActive={false}>
-        <BiTargetLock style={{ fontSize: "42px", color: "#707070" }} />
-      </Link>
-      <Link route="/sellers" isActive={false}>
-        <MdSchool style={{ fontSize: "42px", color: "#707070" }} />
-      </Link>
-    </nav>
+    <>
+      <nav className="header">
+        <Link route="/invoices" isActive={true}>
+          <FaCompass style={{ fontSize: "42px", color: "#707070" }} />
+        </Link>
+        <Link route="/sellers" isActive={false}>
+          <BiTargetLock style={{ fontSize: "42px", color: "#707070" }} />
+        </Link>
+        <Link route="/customers" isActive={false}>
+          <MdSchool style={{ fontSize: "42px", color: "#707070" }} />
+        </Link>
+      </nav>
+      <div></div>
+    </>
   );
 };
 

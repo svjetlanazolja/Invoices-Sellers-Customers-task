@@ -21,9 +21,13 @@ export const customersSlice = createSlice({
     setRowInfo: (state, action) => {
       state.rowInfo = action.payload;
     },
+    setReqState: (state) => {
+      state.reqSent = state.reqSent + 1;
+    },
   },
 });
 
-export const { changeCustomers, setRowInfo } = customersSlice.actions;
+export const { changeCustomers, setRowInfo, setReqState } =
+  customersSlice.actions;
 
 export default customersSlice.reducer;
