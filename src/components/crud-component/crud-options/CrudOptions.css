@@ -26,3 +26,27 @@
 .normal {
   background-color: seagreen;
 }
+
+.iconNavbarAdd {
+  background: transparent;
+}
+
+.iconNavbarAddActive {
+  background: #e2e9f8;
+}
+
+.navLinks a {
+  border: 1px solid #707070;
+  border-radius: 100%;
+  width: 70px;
+  height: 70px;
+  margin: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.navLinks a svg {
+  background: transparent;
+}

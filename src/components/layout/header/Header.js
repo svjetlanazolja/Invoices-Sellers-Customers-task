@@ -4,22 +4,39 @@ import Link from "./Link/Link";
 import { FaCompass } from "react-icons/fa";
 import { BiTargetLock } from "react-icons/bi";
 import { MdSchool } from "react-icons/md";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
     <>
-      <nav className="header">
-        <Link route="/invoices" isActive={true}>
+      <nav className="header navLinks">
+        <NavLink
+          to="invoices"
+          className={({ isActive }) =>
+            isActive ? "iconNavbarAddActive" : "iconNavbarAdd"
+          }
+        >
           <FaCompass style={{ fontSize: "42px", color: "#707070" }} />
-        </Link>
-        <Link route="/sellers" isActive={false}>
+        </NavLink>
+
+        <NavLink
+          to="sellers"
+          className={({ isActive }) =>
+            isActive ? "iconNavbarAddActive" : "iconNavbarAdd"
+          }
+        >
           <BiTargetLock style={{ fontSize: "42px", color: "#707070" }} />
-        </Link>
-        <Link route="/customers" isActive={false}>
+        </NavLink>
+
+        <NavLink
+          to="customers"
+          className={({ isActive }) =>
+            isActive ? "iconNavbarAddActive" : "iconNavbarAdd"
+          }
+        >
           <MdSchool style={{ fontSize: "42px", color: "#707070" }} />
-        </Link>
+        </NavLink>
       </nav>
-      <div></div>
     </>
   );
 };

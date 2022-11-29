@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import IconNavbar from "./IconNavbar";
+import IconNavbarData from "./IconNavbarData";
 
 const NavbarIcon = () => {
   const activeLink = "test ";
@@ -8,7 +8,7 @@ const NavbarIcon = () => {
   return (
     <section>
       <div className="test">
-        {IconNavbar.map((item, index) => {
+        {IconNavbarData.map((item, index) => {
           return (
             <div key={index}>
               <div className="test">

@@ -96,13 +96,12 @@ const InvoicesTable = () => {
   };
   return (
     <>
-      {rowSelected &&
-        {
-          /* <EditFormModalInvoices
+      {rowSelected && (
+        <EditFormModalInvoices
           handleCloseInvoicesEditModal={handleCloseInvoicesEditModal}
           setUpdateInvoicesRequestSent={setUpdateInvoicesRequestSent}
-        /> */
-        }}
+        />
+      )}
       <table className="table_data">
         <thead className="table_data_thead">
           <tr>

@@ -2,7 +2,7 @@ import { FaCompass } from "react-icons/fa";
 import { BiTargetLock } from "react-icons/bi";
 import { MdSchool } from "react-icons/md";
 
-export const IconNavbar = [
+export const IconNavbarData = [
   {
     title: "invoices",
     path: "/invoices",
