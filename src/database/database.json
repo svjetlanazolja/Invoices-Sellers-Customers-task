@@ -9,7 +9,7 @@
     },
     {
       "id": 2,
-      "sellerName": "Oracle",
+      "sellerName": "Oracle testing",
       "customerName": "Stefan Gavrilovic",
       "date": "11.10.2022",
       "amount": "142.800$"
@@ -67,8 +67,8 @@
   "sellers": [
     {
       "id": 1,
-      "companyName": "Microsoft test",
-      "hqAddress": "Banjaluka test",
+      "companyName": "Microsoft",
+      "hqAddress": "Banjaluka",
       "isActive": true
     },
     {

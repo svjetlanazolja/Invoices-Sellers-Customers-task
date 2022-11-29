@@ -16,7 +16,7 @@ const Invoices = () => {
     invoiceServices.getInvoices().then((res) => {
       dispatch(changeInvoices(res.data));
     });
-  }, [dispatch]);
+  }, []);
 
   return (
     <div>

@@ -3,7 +3,7 @@ import axios from "axios";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import EditFormModalCustomers from "../form-modal/form-modal-customers/EditFormModalCustomers";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setRowInfo } from "../../redux/slices/customers/customersSlices";
 
 const CustomersTable = () => {
@@ -13,6 +13,7 @@ const CustomersTable = () => {
   const [updateCustomersRequestSent, setUpdateCustomersRequestSent] =
     useState(false);
   const dispatch = useDispatch();
+  const reqSent = useSelector((state) => state.customers.reqSent);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(4);
@@ -54,7 +55,7 @@ const CustomersTable = () => {
 
   useEffect(() => {
     customerdata();
-  }, [updateCustomersRequestSent]);
+  }, [updateCustomersRequestSent, reqSent]);
 
   const backend_url = process.env.REACT_APP_BACKEND_URL;
   const route = "/customers";

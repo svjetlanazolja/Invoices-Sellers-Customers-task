@@ -6,11 +6,11 @@ import EditFormModalInvoices from "../form-modal/form-modal-invoices/EditFormMod
 import { setRowInfo } from "../../redux/slices/invoices/invoicesSlices";
 import { useDispatch, useSelector } from "react-redux";
 import "./InvoicesTable.css";
-import { useNavigate } from "react-router-dom";
 
 const InvoicesTable = () => {
   const [invoicesData, setInvoicesData] = useState([]);
-  const navigate = useNavigate();
+
+  const [isSelected, setIsSelected] = useState(false);
 
   const [rowSelected, setRowSelected] = useState(false);
   const [updateInvoicesRequestSent, setUpdateInvoicesRequestSent] =
@@ -96,12 +96,13 @@ const InvoicesTable = () => {
   };
   return (
     <>
-      {rowSelected && (
-        <EditFormModalInvoices
+      {rowSelected &&
+        {
+          /* <EditFormModalInvoices
           handleCloseInvoicesEditModal={handleCloseInvoicesEditModal}
           setUpdateInvoicesRequestSent={setUpdateInvoicesRequestSent}
-        />
-      )}
+        /> */
+        }}
       <table className="table_data">
         <thead className="table_data_thead">
           <tr>

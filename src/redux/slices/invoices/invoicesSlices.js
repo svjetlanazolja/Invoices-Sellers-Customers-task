@@ -28,7 +28,7 @@ export const invoicesSlice = createSlice({
   },
 });
 
-export const { changeInvoices, setRowInfo, addRowInfo, setReqState } =
+export const { changeInvoices, setRowInfo, setReqState } =
   invoicesSlice.actions;
 
 export default invoicesSlice.reducer;
