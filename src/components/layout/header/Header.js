@@ -1,6 +1,5 @@
 import React from "react";
 import "./Header.css";
-import Link from "./Link/Link";
 import { FaCompass } from "react-icons/fa";
 import { BiTargetLock } from "react-icons/bi";
 import { MdSchool } from "react-icons/md";
