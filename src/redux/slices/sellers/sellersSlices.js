@@ -8,6 +8,7 @@ const initialState = {
     hqAddress: "",
     isActive: "",
   },
+  reqSent: 1,
 };
 
 export const sellersSlice = createSlice({
@@ -16,6 +17,9 @@ export const sellersSlice = createSlice({
   reducers: {
     changeSellers: (state, action) => {
       state.data = action.payload;
+    },
+    changeActiveId: (state, action) => {
+      state.activeId = action.payload;
     },
     setRowInfo: (state, action) => {
       state.rowInfo = action.payload;
@@ -26,6 +30,7 @@ export const sellersSlice = createSlice({
   },
 });
 
-export const { changeSellers, setRowInfo, setReqState } = sellersSlice.actions;
+export const { changeSellers, setRowInfo, setReqState, changeActiveId } =
+  sellersSlice.actions;
 
 export default sellersSlice.reducer;

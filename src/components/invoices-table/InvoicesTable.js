@@ -2,15 +2,16 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
-import EditFormModalInvoices from "../form-modal/form-modal-invoices/EditFormModalInvoices";
-import { setRowInfo } from "../../redux/slices/invoices/invoicesSlices";
+import {
+  changeActiveId,
+  setRowInfo,
+} from "../../redux/slices/invoices/invoicesSlices";
 import { useDispatch, useSelector } from "react-redux";
 import "./InvoicesTable.css";
+import { invoicesActiveIdSelector } from "../../redux/slices/invoices/invoicesSelectors";
 
 const InvoicesTable = () => {
   const [invoicesData, setInvoicesData] = useState([]);
-
-  const [isSelected, setIsSelected] = useState(false);
 
   const [rowSelected, setRowSelected] = useState(false);
   const [updateInvoicesRequestSent, setUpdateInvoicesRequestSent] =
@@ -23,6 +24,9 @@ const InvoicesTable = () => {
   const [pageNumberLimit, setPageNumberLimit] = useState(1);
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(1);
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
+
+  const activeId = useSelector(invoicesActiveIdSelector);
+  console.log(activeId);
 
   const handleClick = (event) => {
     setCurrentPage(Number(event.target.id));
@@ -67,13 +71,9 @@ const InvoicesTable = () => {
     setInvoicesData(data);
   };
 
-  const handleSelectRow = (rowData) => {
+  const handleSelectRow = (rowData, i) => {
     dispatch(setRowInfo(rowData));
-    setRowSelected((prevState) => !prevState);
-    console.log(rowData);
-  };
-
-  const handleCloseInvoicesEditModal = () => {
+    dispatch(changeActiveId(i));
     setRowSelected((prevState) => !prevState);
   };
 
@@ -96,12 +96,6 @@ const InvoicesTable = () => {
   };
   return (
     <>
-      {rowSelected && (
-        <EditFormModalInvoices
-          handleCloseInvoicesEditModal={handleCloseInvoicesEditModal}
-          setUpdateInvoicesRequestSent={setUpdateInvoicesRequestSent}
-        />
-      )}
       <table className="table_data">
         <thead className="table_data_thead">
           <tr>
@@ -112,19 +106,24 @@ const InvoicesTable = () => {
           </tr>
         </thead>
         <tbody className="table_data_body">
-          {currentItems.map((item) => (
-            <tr
-              key={item.id}
-              id={item.id}
-              onClick={() => handleSelectRow(item)}
-              className="table_data_tr"
-            >
-              <td>{item.sellerName}</td>
-              <td>{item.customerName}</td>
-              <td>{item.date}</td>
-              <td>{item.amount}</td>
-            </tr>
-          ))}
+          {currentItems.map((item, i) => {
+            return (
+              <tr
+                key={item.id}
+                id={item.id}
+                onClick={() => handleSelectRow(item, i)}
+                className="table_data_tr"
+                style={{
+                  background: i === activeId ? "#edf3ff" : "white",
+                }}
+              >
+                <td>{item.sellerName}</td>
+                <td>{item.customerName}</td>
+                <td>{item.date}</td>
+                <td>{item.amount}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
       <ul className="pagination_container">

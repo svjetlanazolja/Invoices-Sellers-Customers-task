@@ -9,6 +9,7 @@ const initialState = {
     address: "",
     age: "",
   },
+  reqSent: 1,
 };
 
 export const customersSlice = createSlice({
@@ -17,6 +18,9 @@ export const customersSlice = createSlice({
   reducers: {
     changeCustomers: (state, action) => {
       state.data = action.payload;
+    },
+    changeActiveId: (state, action) => {
+      state.activeId = action.payload;
     },
     setRowInfo: (state, action) => {
       state.rowInfo = action.payload;
@@ -27,7 +31,7 @@ export const customersSlice = createSlice({
   },
 });
 
-export const { changeCustomers, setRowInfo, setReqState } =
+export const { changeCustomers, setRowInfo, setReqState, changeActiveId } =
   customersSlice.actions;
 
 export default customersSlice.reducer;

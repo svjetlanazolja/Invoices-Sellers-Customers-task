@@ -4,7 +4,12 @@ import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
 import EditFormModalCustomers from "../form-modal/form-modal-customers/EditFormModalCustomers";
 import { useDispatch, useSelector } from "react-redux";
-import { setRowInfo } from "../../redux/slices/customers/customersSlices";
+import {
+  setRowInfo,
+  changeActiveId,
+  changeCustomers,
+} from "../../redux/slices/customers/customersSlices";
+import { customersActiveIdSelector } from "../../redux/slices/customers/customersSelectors";
 
 const CustomersTable = () => {
   const [customersData, setCustomersData] = useState([]);
@@ -20,6 +25,8 @@ const CustomersTable = () => {
   const [pageNumberLimit, setPageNumberLimit] = useState(1);
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(1);
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
+
+  const activeId = useSelector(customersActiveIdSelector);
 
   const handleClick = (event) => {
     setCurrentPage(Number(event.target.id));
@@ -65,14 +72,11 @@ const CustomersTable = () => {
     setCustomersData(data);
   };
 
-  const handleSelectRow = (rowData) => {
+  const handleSelectRow = (rowData, i) => {
     dispatch(setRowInfo(rowData));
+    dispatch(changeActiveId(i));
     setRowSelected((prevState) => !prevState);
     console.log(rowData);
-  };
-
-  const handleCloseCustomersEditModal = () => {
-    setRowSelected((prevState) => !prevState);
   };
 
   const handleNextButton = () => {
@@ -95,12 +99,6 @@ const CustomersTable = () => {
 
   return (
     <>
-      {rowSelected && (
-        <EditFormModalCustomers
-          handleCloseCustomersEditModal={handleCloseCustomersEditModal}
-          setUpdateCustomersRequestSent={setUpdateCustomersRequestSent}
-        />
-      )}
       <table className="table_data">
         <thead className="table_data_thead">
           <tr>
@@ -111,19 +109,24 @@ const CustomersTable = () => {
           </tr>
         </thead>
         <tbody className="table_data_body">
-          {currentItems.map((item) => (
-            <tr
-              key={item.id}
-              id={item.id}
-              onClick={() => handleSelectRow(item)}
-              className="table_data_tr"
-            >
-              <td>{item.name}</td>
-              <td>{item.surname}</td>
-              <td>{item.address}</td>
-              <td>{item.age}</td>
-            </tr>
-          ))}
+          {currentItems.map((item, i) => {
+            return (
+              <tr
+                key={item.id}
+                id={item.id}
+                onClick={() => handleSelectRow(item, i)}
+                className="table_data_tr"
+                style={{
+                  background: i === activeId ? "#edf3ff" : "white",
+                }}
+              >
+                <td>{item.name}</td>
+                <td>{item.surname}</td>
+                <td>{item.address}</td>
+                <td>{item.age}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
       <ul className="pagination_container">

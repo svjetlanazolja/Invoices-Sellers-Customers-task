@@ -2,23 +2,30 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { MdNavigateNext } from "react-icons/md";
 import { GrFormPrevious } from "react-icons/gr";
-import EditFormModalSellers from "../form-modal/form-modal-sellers/EditFormModalSellers";
-import { setRowInfo } from "../../redux/slices/sellers/sellersSlices";
-import { useDispatch } from "react-redux";
+import {
+  setRowInfo,
+  changeActiveId,
+} from "../../redux/slices/sellers/sellersSlices";
+import { useDispatch, useSelector } from "react-redux";
 import "../invoices-table/InvoicesTable.css";
+import { sellersActiveIdSelector } from "../../redux/slices/sellers/sellersSelector";
 
 const SellersTable = () => {
   const [sellersData, setSellerData] = useState([]);
 
   const [rowSelected, setRowSelected] = useState(false);
   const [updateSellerRequestSent, setUpdateSellerRequestSent] = useState(false);
+
   const dispatch = useDispatch();
+  const reqSent = useSelector((state) => state.sellers.reqSent);
 
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(4);
   const [pageNumberLimit, setPageNumberLimit] = useState(1);
   const [maxPageNumberLimit, setmaxPageNumberLimit] = useState(1);
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
+
+  const activeId = useSelector(sellersActiveIdSelector);
 
   const handleClick = (event) => {
     setCurrentPage(Number(event.target.id));
@@ -47,14 +54,13 @@ const SellersTable = () => {
       );
     }
   });
-
   useEffect(() => {
     sellersdata();
   }, []);
 
   useEffect(() => {
     sellersdata();
-  }, [updateSellerRequestSent]);
+  }, [updateSellerRequestSent, reqSent]);
 
   const backend_url = process.env.REACT_APP_BACKEND_URL;
   const route = "/sellers";
@@ -64,14 +70,11 @@ const SellersTable = () => {
     setSellerData(data);
   };
 
-  const handleSelectRow = (rowData) => {
+  const handleSelectRow = (rowData, i) => {
     dispatch(setRowInfo(rowData));
+    dispatch(changeActiveId(i));
     setRowSelected((prevState) => !prevState);
     console.log(rowData);
-  };
-
-  const handleCloseSellerEditModal = () => {
-    setRowSelected((prevState) => !prevState);
   };
 
   const handleNextButton = () => {
@@ -91,15 +94,8 @@ const SellersTable = () => {
       setminPageNumberLimit(minPageNumberLimit - pageNumberLimit);
     }
   };
-
   return (
     <>
-      {rowSelected && (
-        <EditFormModalSellers
-          handleCloseSellerEditModal={handleCloseSellerEditModal}
-          setUpdateSellerRequestSent={setUpdateSellerRequestSent}
-        />
-      )}
       <table className="table_data">
         <thead className="table_data_thead">
           <tr>
@@ -108,20 +104,24 @@ const SellersTable = () => {
             <th>Active</th>
           </tr>
         </thead>
-
         <tbody className="table_data_body">
-          {currentItems.map((item) => (
-            <tr
-              key={item.id}
-              id={item.id}
-              onClick={() => handleSelectRow(item)}
-              className="table_data_tr"
-            >
-              <td>{item.companyName}</td>
-              <td>{item.hqAddress}</td>
-              <td>{item.isActive ? "active" : "inactive"}</td>
-            </tr>
-          ))}
+          {currentItems.map((item, i) => {
+            return (
+              <tr
+                key={item.id}
+                id={item.id}
+                onClick={() => handleSelectRow(item, i)}
+                className="table_data_tr"
+                style={{
+                  background: i === activeId ? "#edf3ff" : "white",
+                }}
+              >
+                <td>{item.companyName}</td>
+                <td>{item.hqAddress}</td>
+                <td>{item.isActive ? "active" : "inactive"}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
       <ul className="pagination_container">
