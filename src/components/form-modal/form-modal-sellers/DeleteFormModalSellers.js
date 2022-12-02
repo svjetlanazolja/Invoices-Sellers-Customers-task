@@ -1,11 +1,11 @@
 import React from "react";
+import Button from "../../button/Button";
 import { useSelector } from "react-redux";
 import { sellersServices } from "../../../services/sellersServices";
-import Button from "../../button/Button";
 import "../form-modal-invoices/FormModalInvoices.css";
 
-const DeleteFormModalSellers = () => {
-  const { rowInfo } = useSelector((state) => state.customer);
+const DeleteFormModalSellers = ({ handleCloseModal }) => {
+  const { rowInfo } = useSelector((state) => state.customers);
   const { id } = rowInfo;
 
   const handleDeleteItem = async () => {
@@ -22,6 +22,9 @@ const DeleteFormModalSellers = () => {
             type="button"
             buttonStyle="btn--primary"
             buttonColor="btn--red"
+            onClick={() => {
+              handleCloseModal();
+            }}
           >
             Discard
           </Button>

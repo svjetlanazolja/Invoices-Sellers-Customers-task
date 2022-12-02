@@ -1,19 +1,21 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../../button/Button";
 import "../form-modal-invoices/FormModalInvoices.css";
 import { customersServices } from "../../../services/customersServices";
+import { setReqState } from "../../../redux/slices/customers/customersSlices";
+import { useNavigate } from "react-router-dom";
 
-const EditFormModalCustomers = ({
-  handleCloseCustomersEditModal,
-  setUpdateCustomersRequestSent,
-}) => {
+const EditFormModalCustomers = ({ handleCloseModal }) => {
   const { rowInfo } = useSelector((state) => state.customers);
   const { name, surname, address, age, id } = rowInfo;
   const [customersName, setCustomersName] = useState(name);
   const [customersSurname, setCustomersSurname] = useState(surname);
   const [customersAddress, setCustomersAddress] = useState(address);
   const [customersAge, setCustomersAge] = useState(age);
+
+  const dispach = useDispatch();
+  const navigate = useNavigate();
 
   const handleUpdateSingleCustomer = async () => {
     await customersServices.updateSingleService(id, {
@@ -23,8 +25,10 @@ const EditFormModalCustomers = ({
       address: customersAddress,
       age: customersAge,
     });
-    console.log("update customers");
-    setUpdateCustomersRequestSent((prevState) => !prevState);
+    customersAddress.updateSingleService();
+    dispach(setReqState);
+    handleCloseModal();
+    navigate("/customers");
   };
 
   return (
@@ -69,7 +73,7 @@ const EditFormModalCustomers = ({
 
         <div className="buttons-form">
           <Button
-            onClick={() => handleCloseCustomersEditModal()}
+            onClick={() => handleCloseModal()}
             type="button"
             buttonStyle="btn--primary"
             buttonColor="btn--yellow"
@@ -79,7 +83,6 @@ const EditFormModalCustomers = ({
           <Button
             onClick={() => {
               handleUpdateSingleCustomer();
-              handleCloseCustomersEditModal();
             }}
             type="button"
             buttonStyle="btn--primary"

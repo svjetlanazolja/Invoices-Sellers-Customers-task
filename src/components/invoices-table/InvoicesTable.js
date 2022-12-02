@@ -26,7 +26,6 @@ const InvoicesTable = () => {
   const [minPageNumberLimit, setminPageNumberLimit] = useState(0);
 
   const activeId = useSelector(invoicesActiveIdSelector);
-  console.log(activeId);
 
   const handleClick = (event) => {
     setCurrentPage(Number(event.target.id));
@@ -99,10 +98,10 @@ const InvoicesTable = () => {
       <table className="table_data">
         <thead className="table_data_thead">
           <tr>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Address</th>
-            <th>Age</th>
+            <th>Seller</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Amount</th>
           </tr>
         </thead>
         <tbody className="table_data_body">

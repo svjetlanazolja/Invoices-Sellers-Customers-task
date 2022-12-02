@@ -76,7 +76,6 @@ const CustomersTable = () => {
     dispatch(setRowInfo(rowData));
     dispatch(changeActiveId(i));
     setRowSelected((prevState) => !prevState);
-    console.log(rowData);
   };
 
   const handleNextButton = () => {

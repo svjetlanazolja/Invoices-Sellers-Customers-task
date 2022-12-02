@@ -2,16 +2,16 @@
   "invoices": [
     {
       "id": 1,
-      "sellerName": "Microsoft test",
+      "sellerName": "Microsoft ",
       "customerName": "Marko Markovic",
-      "date": "10.10.2022",
-      "amount": "325.400$"
+      "date": "2022-11-30",
+      "amount": "325.444$"
     },
     {
       "id": 2,
-      "sellerName": "Oracle testing",
+      "sellerName": "Oracleee",
       "customerName": "Stefan Gavrilovic",
-      "date": "11.10.2022",
+      "date": "2022-11-30",
       "amount": "142.800$"
     },
     {
@@ -62,6 +62,41 @@
       "customerName": "Nebojsa Kostic",
       "date": "12.10.2022",
       "amount": "511.000$"
+    },
+    {
+      "id": 1127.6170337115987,
+      "sellerName": "Testing",
+      "customerName": "Testing",
+      "date": "2022-11-29",
+      "amount": "444"
+    },
+    {
+      "id": 4468.743005058215,
+      "sellerName": "",
+      "customerName": "",
+      "date": "",
+      "amount": ""
+    },
+    {
+      "id": 8970.842540208763,
+      "sellerName": "Testing 13",
+      "customerName": "test",
+      "date": "2022-11-30",
+      "amount": "777777"
+    },
+    {
+      "id": 1986.4907184917647,
+      "sellerName": "Testing 1314",
+      "customerName": "test",
+      "date": "2022-11-30",
+      "amount": "777666"
+    },
+    {
+      "id": 3660.57813746161,
+      "sellerName": "Test Edit",
+      "customerName": "test",
+      "date": "2022-11-30",
+      "amount": "511.666$"
     }
   ],
   "sellers": [
@@ -118,6 +153,48 @@
       "companyName": "Microsoft3",
       "hqAddress": "Banjaluka3",
       "isActive": true
+    },
+    {
+      "id": 1963.511063265091,
+      "companyName": "Testing",
+      "hqAddress": "Testing",
+      "isActive": "isActive"
+    },
+    {
+      "id": 1803.3751504380534,
+      "companyName": "Test Testing",
+      "hqAddress": "Teswting",
+      "isActive": "isActive"
+    },
+    {
+      "id": 4969.88228912756,
+      "companyName": "",
+      "hqAddress": "",
+      "isActive": ""
+    },
+    {
+      "id": 5758.1910580394415,
+      "companyName": "",
+      "hqAddress": "",
+      "isActive": ""
+    },
+    {
+      "id": 9355.465654399153,
+      "companyName": "",
+      "hqAddress": "",
+      "isActive": ""
+    },
+    {
+      "id": 514.9710721866741,
+      "companyName": "",
+      "hqAddress": "",
+      "isActive": ""
+    },
+    {
+      "id": 3152.3296510430177,
+      "companyName": "",
+      "hqAddress": "",
+      "isActive": ""
     }
   ],
   "customers": [
@@ -130,9 +207,9 @@
     },
     {
       "id": 2,
-      "name": "Marko24t",
-      "surname": "Markovic44t",
-      "address": "Trebinje2",
+      "name": "Marko",
+      "surname": "Markovic",
+      "address": "Trebinje",
       "age": 24
     },
     {
@@ -176,6 +253,34 @@
       "surname": "Markovic",
       "address": "Trebinje4",
       "age": 26
+    },
+    {
+      "id": 4007.905126204152,
+      "name": "Testing",
+      "surname": "Testing",
+      "address": "Testing",
+      "age": "55"
+    },
+    {
+      "id": 8042.172633687587,
+      "name": "Testing Test",
+      "surname": "Testing",
+      "address": "Testing",
+      "age": "66"
+    },
+    {
+      "id": 6888.571303744544,
+      "name": "Test TEst",
+      "surname": "Test",
+      "address": "Testing",
+      "age": "99"
+    },
+    {
+      "id": 4212.299361855691,
+      "name": "",
+      "surname": "",
+      "address": "",
+      "age": ""
     }
   ]
 }

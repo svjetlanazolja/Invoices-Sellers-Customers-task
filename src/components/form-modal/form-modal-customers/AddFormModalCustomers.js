@@ -3,7 +3,7 @@ import Button from "../../button/Button";
 import "../form-modal-invoices/FormModalInvoices.css";
 import { customersServices } from "../../../services/customersServices";
 import { useNavigate } from "react-router-dom";
-import { setReqState } from "../../../redux/slices/invoices/invoicesSlices";
+import { setReqState } from "../../../redux/slices/customers/customersSlices";
 import { useDispatch } from "react-redux";
 
 const AddFormModalCustomers = ({ handleCloseModal }) => {
@@ -31,7 +31,6 @@ const AddFormModalCustomers = ({ handleCloseModal }) => {
     dispatch(setReqState());
     handleCloseModal();
     navigate("/customers");
-    console.log(newCustomer);
   };
 
   return (

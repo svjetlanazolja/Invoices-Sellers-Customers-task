@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "../../button/Button";
 import "../form-modal-invoices/FormModalInvoices.css";
 import { sellersServices } from "../../../services/sellersServices";
+import { useNavigate } from "react-router-dom";
+import { setReqState } from "../../../redux/slices/sellers/sellersSlices";
 
-const EditFormModalSellers = ({
-  handleCloseSellerEditModal,
-  setUpdateSellerRequestSent,
-}) => {
+const EditFormModalSellers = ({ handleCloseModal }) => {
   const { rowInfo } = useSelector((state) => state.sellers);
   const { companyName, hqAddress, isActive, id } = rowInfo;
   const [sellerCompanyName, setSellerCompanyName] = useState(companyName);
   const [sellerHqAddress, setSellerHqAddress] = useState(hqAddress);
   const [sellerIsActive, setIsActive] = useState(isActive);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleUpdateSingleSeller = async () => {
     await sellersServices.updateSingleSeller(id, {
@@ -21,8 +23,10 @@ const EditFormModalSellers = ({
       hqAddress: sellerHqAddress,
       isActive: sellerIsActive,
     });
-    console.log("updated seller");
-    setUpdateSellerRequestSent((prevState) => !prevState);
+    sellersServices.updateSingleSeller();
+    dispatch(setReqState());
+    handleCloseModal();
+    navigate("/sellers");
   };
 
   return (
@@ -58,17 +62,18 @@ const EditFormModalSellers = ({
 
         <div className="buttons-form">
           <Button
-            onClick={() => handleCloseSellerEditModal()}
             type="button"
             buttonStyle="btn--primary"
             buttonColor="btn--yellow"
+            onClick={() => {
+              handleCloseModal();
+            }}
           >
             Discard
           </Button>
           <Button
             onClick={() => {
               handleUpdateSingleSeller();
-              handleCloseSellerEditModal();
             }}
             type="button"
             buttonStyle="btn--primary"

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Modal from "../../modal/Modal";
 import "./CrudOptions.css";
 
@@ -16,6 +16,7 @@ import DeleteFormModalSellers from "../../form-modal/form-modal-sellers/DeleteFo
 
 const CrudOption = ({ route, type, id, children }) => {
   const [isModalInView, setIsModalInView] = useState(false);
+
   const handleCloseModal = () => {
     setIsModalInView(false);
   };
@@ -38,28 +39,30 @@ const CrudOption = ({ route, type, id, children }) => {
             <AddFormModalInvoices handleCloseModal={handleCloseModal} />
           )}
           {route === "invoices" && type === "update" && (
-            <EditFormModalInvoices />
+            <EditFormModalInvoices handleCloseModal={handleCloseModal} />
           )}
           {route === "invoices" && type === "delete" && (
-            <DeleteFormModalInvoices />
+            <DeleteFormModalInvoices handleCloseModal={handleCloseModal} />
           )}
 
           {route === "customers" && type === "add" && (
             <AddFormModalCustomers handleCloseModal={handleCloseModal} />
           )}
           {route === "customers" && type === "update" && (
-            <EditFormModalCustomers />
+            <EditFormModalCustomers handleCloseModal={handleCloseModal} />
           )}
           {route === "customers" && type === "delete" && (
-            <DeleteFormModalCustomers />
+            <DeleteFormModalCustomers handleCloseModal={handleCloseModal} />
           )}
 
           {route === "sellers" && type === "add" && (
             <AddFormModalSellers handleCloseModal={handleCloseModal} />
           )}
-          {route === "sellers" && type === "update" && <EditFormModalSellers />}
+          {route === "sellers" && type === "update" && (
+            <EditFormModalSellers handleCloseModal={handleCloseModal} />
+          )}
           {route === "sellers" && type === "delete" && (
-            <DeleteFormModalSellers />
+            <DeleteFormModalSellers handleCloseModal={handleCloseModal} />
           )}
         </Modal>
       )}

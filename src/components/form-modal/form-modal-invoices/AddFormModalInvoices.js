@@ -32,7 +32,6 @@ const AddFormModalInvoices = ({ handleCloseModal }) => {
     dispatch(setReqState());
     handleCloseModal();
     navigate("/");
-    console.log(newInvoices);
   };
 
   return (
@@ -90,7 +89,9 @@ const AddFormModalInvoices = ({ handleCloseModal }) => {
             type="button"
             buttonStyle="btn--primary"
             buttonColor="btn--yellow"
-            onClick={() => handleAddInvoices()}
+            onClick={() => {
+              handleCloseModal();
+            }}
           >
             Discard
           </Button>

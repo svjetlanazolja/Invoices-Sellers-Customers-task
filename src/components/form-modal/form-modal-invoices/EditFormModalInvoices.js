@@ -3,11 +3,11 @@ import { useSelector } from "react-redux";
 import Button from "../../button/Button";
 import "./FormModalInvoices.css";
 import { invoiceServices } from "../../../services/invoicesServices";
+import { setReqState } from "../../../redux/slices/invoices/invoicesSlices";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-const EditFormModalInvoices = ({
-  handleCloseInvoicesEditModal,
-  setUpdateInvoicesRequestSent,
-}) => {
+const EditFormModalInvoices = ({ handleCloseModal }) => {
   const { rowInfo } = useSelector((state) => state.invoices);
   const { sellerName, customerName, date, amount, id } = rowInfo;
   const [invoicesSellerName, setInvoicesSellerName] = useState(sellerName);
@@ -15,6 +15,9 @@ const EditFormModalInvoices = ({
     useState(customerName);
   const [invoicesDate, setInvoicesDate] = useState(date);
   const [invoicesAmount, setInvoicesAmount] = useState(amount);
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const handleUpdateSingleInvoice = async () => {
     await invoiceServices.updateSingleInvoice(id, {
@@ -24,8 +27,10 @@ const EditFormModalInvoices = ({
       date: invoicesDate,
       amount: invoicesAmount,
     });
-    console.log("updated invoices");
-    setUpdateInvoicesRequestSent((prevState) => !prevState);
+    invoiceServices.updateSingleInvoice();
+    dispatch(setReqState());
+    handleCloseModal();
+    navigate("/");
   };
 
   const today = new Date().toISOString().split("T")[0];
@@ -73,17 +78,18 @@ const EditFormModalInvoices = ({
 
         <div className="buttons-form">
           <Button
-            onClick={() => handleCloseInvoicesEditModal()}
             type="button"
             buttonStyle="btn--primary"
             buttonColor="btn--yellow"
+            onClick={() => {
+              handleCloseModal();
+            }}
           >
             Discard
           </Button>
           <Button
             onClick={() => {
               handleUpdateSingleInvoice();
-              handleCloseInvoicesEditModal();
             }}
             type="button"
             buttonStyle="btn--primary"

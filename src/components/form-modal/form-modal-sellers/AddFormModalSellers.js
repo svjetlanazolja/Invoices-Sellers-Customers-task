@@ -3,7 +3,7 @@ import Button from "../../button/Button";
 import "../form-modal-invoices/FormModalInvoices.css";
 import { sellersServices } from "../../../services/sellersServices";
 import { useNavigate } from "react-router-dom";
-import { setReqState } from "../../../redux/slices/invoices/invoicesSlices";
+import { setReqState } from "../../../redux/slices/sellers/sellersSlices";
 import { useDispatch } from "react-redux";
 
 const AddFormModalSellers = ({ handleCloseModal }) => {
@@ -29,7 +29,6 @@ const AddFormModalSellers = ({ handleCloseModal }) => {
     dispatch(setReqState());
     handleCloseModal();
     navigate("/sellers");
-    console.log(newSeller);
   };
 
   return (
