@@ -1,32 +1,11 @@
 {
   "invoices": [
     {
-      "id": 1,
-      "sellerName": "Microsoft ",
-      "customerName": "Marko Markovic",
-      "date": "2022-11-30",
-      "amount": "325.444$"
-    },
-    {
-      "id": 2,
-      "sellerName": "Oracleee",
-      "customerName": "Stefan Gavrilovic",
-      "date": "2022-11-30",
-      "amount": "142.800$"
-    },
-    {
       "id": 3,
       "sellerName": "Facebook",
       "customerName": "Nebojsa Kostic",
       "date": "12.10.2022",
       "amount": "511.000$"
-    },
-    {
-      "id": 4,
-      "sellerName": "Amazon",
-      "customerName": "Marko Markovic",
-      "date": "10.10.2022",
-      "amount": "222.600$"
     },
     {
       "id": 5,
@@ -97,6 +76,13 @@
       "customerName": "test",
       "date": "2022-11-30",
       "amount": "511.666$"
+    },
+    {
+      "id": 7124.657044044007,
+      "sellerName": "testing12",
+      "customerName": "Test",
+      "date": "2022-11-30",
+      "amount": "8999"
     }
   ],
   "sellers": [

@@ -9,7 +9,6 @@ import { customersDataSelector } from "../redux/slices/customers/customersSelect
 
 const Customers = () => {
   const customersData = useSelector(customersDataSelector);
-  console.log(customersData);
   const dispatch = useDispatch();
 
   useEffect(() => {

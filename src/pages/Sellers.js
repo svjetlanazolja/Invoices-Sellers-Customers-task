@@ -9,7 +9,6 @@ import { sellersServices } from "../services/sellersServices";
 
 const Sellers = () => {
   const sellersData = useSelector(sellersDataSelector);
-  console.log(sellersData);
   const dispatch = useDispatch();
 
   useEffect(() => {

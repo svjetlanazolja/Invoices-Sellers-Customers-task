@@ -9,7 +9,6 @@ import { invoiceServices } from "../services/invoicesServices";
 
 const Invoices = () => {
   const invoicesData = useSelector(invoicesDataSelector);
-  console.log(invoicesData);
   const dispatch = useDispatch();
 
   useEffect(() => {

@@ -4,8 +4,8 @@ import { customersServices } from "../../../services/customersServices";
 import Button from "../../button/Button";
 import "../form-modal-invoices/FormModalInvoices.css";
 
-const DeleteFormModalCustomers = () => {
-  const { rowInfo } = useSelector((state) => state.customer);
+const DeleteFormModalCustomers = ({ handleCloseModal }) => {
+  const { rowInfo } = useSelector((state) => state.customers);
   const { id } = rowInfo;
 
   const handleDeleteItem = async () => {
@@ -21,6 +21,9 @@ const DeleteFormModalCustomers = () => {
             type="button"
             buttonStyle="btn--primary"
             buttonColor="btn--red"
+            onClick={() => {
+              handleCloseModal();
+            }}
           >
             Discard
           </Button>

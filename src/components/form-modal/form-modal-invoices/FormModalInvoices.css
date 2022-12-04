@@ -72,3 +72,10 @@
 .dollar_div::after {
   content: "$";
 }
+
+.crud-icon-button {
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
