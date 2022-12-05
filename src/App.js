@@ -12,8 +12,15 @@ function App() {
       <Routes>
         <Route path="*" element={<ErrorPage />} />
         <Route path="/" element={<Navigate to="/invoices" />} />
+
         <Route path="/invoices" element={<Invoices />} />
-        <Route path="/invoices/:id" element={<HandleRouteId />} />
+        {/* <Route path="/invoices/:id" element={<Invoices />} /> */}
+
+        {/*         
+        <Route path="/invoices" element={<Invoices />}>
+          <Route path="/invoices/:id" element={<Invoices />} />
+        </Route> */}
+
         <Route path="customers" element={<Customer />} />
         <Route path="sellers" element={<Sellers />} />
       </Routes>

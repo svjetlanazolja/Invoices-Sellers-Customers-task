@@ -12,9 +12,8 @@ const CrudComponent = ({ route, id }) => {
     <>
       <div className="crud_option_container">
         <span>
-          <button disabled={true}>Disabled Button</button>
           <CrudOption route={route} type="add" id={id}>
-            <button disabled={true} className="crud-icon-button">
+            <button className="crud-icon-button">
               <AiOutlinePlus
                 style={{
                   fontSize: "50px",
